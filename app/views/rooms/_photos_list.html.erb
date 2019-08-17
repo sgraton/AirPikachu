@@ -1,0 +1,23 @@
+<% if @room.images.attached? %>
+
+    <br/>
+    <div class="row">
+        <% @room.images.each do |image| %>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading preview">
+                        <%= image_tag url_for(image) %>
+                    </div>
+                    <div class="panel-body">
+                        <span class="pull-right">
+                            <%= link_to delete_photo_room_url(photo_id: image.id, id: @room.id), method: :delete, data: {confirm: "Are you sure ?"} do %>
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            <% end %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+<% end %>

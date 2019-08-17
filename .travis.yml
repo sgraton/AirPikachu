@@ -1,0 +1,22 @@
+language: ruby
+rvm:
+- 2.6.2
+cache:
+  bundler: true
+  directories:
+  - node_modules
+  yarn: true
+before_script:
+- bundle exec rails db:create --all
+- bundle exec rails db:migrate
+deploy:
+  provider: heroku
+  api_key:
+    secure: lpQdZr9XNzZXwsnLKjcxTWueBOr+UHgcfHvh9wrOU+L3cyteXOLX6GJ/3V6inCFQYMln41RV6Xq6mjZcEIftCykwuW0pVtDwGIeZ34kwV1ojk5f4B7VdnfB7mNvaqnhnDL/sOR2ylmoz6QDiT2wd4TEk7gRkf0yd+igs8QG8/SKjRM7xoCYXs6CQ16BnB2aZjJ+4FhDFPZP+59lNtZ7PhWZZIneKrwjJTrfUjEmmMnZ4truMo9umT+1+nDp4EfH0Nszivc/T1UrYuDqqA1sSxSW57tZZi/hhJT0BqwT0q1nKRawbHj2/SyzqaJrGk8q2xhNdvtcWa9TIlQNhuJtUZBC2RvG8qCuWw+bqmQ5mvt13wz8It2JzSQN/nVksixsFsg/9XxB8cux/2KYfR2RrET9MupQCur+lgBicA3e7dbKsRgU05efXzNxYyM54C1JQ43xbHm2DPOnWOkdT/cSleTt7KTJ6wMLsKtsg4srkxbwQSdJXapnF7goZRU+TrknCrpVucSJP9FSiE+7MmVxpRZVPnRcYKVAx8Do7xzZtDrKt3iUkiu3+BlzLfg11xntYK1QJrBRv789LdQPANeWUX3QRwEhkH4WZ0+2CXnDpImkR3fNch5c8objZtD908gxrCkzbL7d3ejRQckxYsJkaw28DAbJtDo/kKuUciZ9x1lk=
+  app: limitless-harbor-80092
+  on:
+    repo: sgraton/AirPikachu
+  run:
+  - rails db:migrate
+env:
+  secure: A8XXqimr1mye66I2muyHAxzl19OsUFIZyT20b0LxElYR88VWhgshOxqdQfO3g7UgiX/sKW+/gJ4b1/ST8wfwzGoLjTQmb9Duc6iBWmdilKKi6ZLkjXrv/Otsrz6j2UrFCPlW4yT0VOARauZn39tWrF2ZptULLyCYkn/SvHtpO6vvYeCLajQKfqrAw9i39hp5a/bP8xEMFA4K1pbLVuKjnujtNpdfBmwhCbwxRreqdj5t4ZLd8UBFoLceuWIvsOOzrI1Anj2H6qyBuFrLwMQVW1qj5soRsTSoNN/rS8KXmlhIQVGH3xQC/Rlqu3sxqh7Z+QTBGy869WzRcjfx859IM1iyYRym3g3ut54BRPJfbRpmRda0/Rj5GBgw/QtnLZkRi8P1oO/jaCJiUq4BCLGCooBfe3Kh4PbiYcJPm/cV56BUg651fse1i/8J+HEg62vRV7cgtM3Q3kkWxP3md7CUkt2UwGm1nsKQrAZVDwstjx5e/Ft7N7YRO5HtV3LNECHeNOZYZYVFFgMo6dssdPd3VII56D1zcKZ3aSsAEkjLIz1rBLVpYRoiQQFAJoY+jTtJBLjzbb8EEm39P+NcSdfP3Nr9d5M7O523nXTSYNBFeUQjcsmws0mPLoqMtWfj+uCIs/g7v+Uv/GP87Iq+9WNDwJYQfjAm95Fq5miZjRVNEjY=
