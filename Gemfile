@@ -52,3 +52,4 @@ gem "omniauth-rails_csrf_protection"
 gem "aws-sdk-s3", require: false
 gem "geocoder", '=1.5.1'
 gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'twilio-ruby', '~> 5.25.3'

@@ -14,8 +14,10 @@
                     <% if @user.provider %>
                         <li>Facebook <span class="pull-right icon-babu"><i class="fa fa-check-circle"></i></span></li>
                     <% end %>
-                    
-                    <li>Phone Number <span class="pull-right icon-babu"><i class="fa fa-check-circle"></i></span></li>
+
+                    <% if @user.phone_verified %>
+                        <li>Phone Number <span class="pull-right icon-babu"><i class="fa fa-check-circle"></i></span></li>
+                    <% end %>
                 </ul>
             </div>
         </div>

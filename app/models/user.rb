@@ -33,4 +33,30 @@ class User < ApplicationRecord
       end
     end
   end
+
+  def generate_pin
+    self.pin = SecureRandom.hex(2)
+    self.phone_verified = false
+    self.save
+  end
+
+  def send_pin
+    require 'twilio-ruby'
+
+    # put your own credentials here
+    account_sid = 'ACcb3d75ddf921843184910da86ace6bfa'
+    auth_token = '1b7df320b20eb1a214b9209157d03944'
+    
+    # set up a client to talk to the Twilio REST API
+    @client = Twilio::REST::Client.new account_sid, auth_token
+    @client.api.account.messages.create(
+      from: '+33755537138',
+      to: self.phone_number,
+      body: "Your pin is #{self.pin}"
+    )
+  end
+
+  def verify_pin(entered_pin)
+    update(phone_verified: true) if self.pin == entered_pin
+  end
 end
