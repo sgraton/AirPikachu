@@ -44,8 +44,8 @@ class User < ApplicationRecord
     require 'twilio-ruby'
 
     # put your own credentials here
-    account_sid = 'ACcb3d75ddf921843184910da86ace6bfa'
-    auth_token = '1b7df320b20eb1a214b9209157d03944'
+    account_sid = Rails.application.credentials[:twilio][:access_account_sid]
+    auth_token = Rails.application.credentials[:twilio][:access_auth_token]
     
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new account_sid, auth_token

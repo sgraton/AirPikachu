@@ -16,6 +16,7 @@
                   <div class="row">
                     <div class="col-md-2">
                         <%= trip.start_date.strftime('%v') %>
+                        <%= trip.status %>
                     </div>
                     <div class="col-md-2">
                         <%= link_to room_path(trip.room) do %>
@@ -32,7 +33,7 @@
                         </span>
                     </div>
                     <div class="col-md-3 text-right">
-                        <%= render partial: "reviews/guest_form", locals: {reservation: trip} %>
+                        <%= render partial: "reviews/guest_form", locals: {reservation: trip} if trip.Approved? %>
                     </div>
                   </div>
                   <hr/>
