@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("bootstrap3/dist/js/bootstrap.min");
+require("fullcalendar/dist/fullcalendar");
+window.moment = require("moment/moment");
 
 window.Noty = require("noty")
 window.Dropzone = require("dropzone")
