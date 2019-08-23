@@ -7,11 +7,6 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("bootstrap3/dist/js/bootstrap.min");
-require("fullcalendar/dist/fullcalendar");
-window.moment = require("moment/moment");
-
-window.Noty = require("noty")
-window.Dropzone = require("dropzone")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -27,5 +22,13 @@ global.$ = $
 global.jQuery = $
 
 require('jquery-ui');
-require("packs/jquery.raty.js")
-require("packs/geocomplete.js")
+require("packs/jquery.raty.js");
+require("packs/geocomplete.js");
+
+require("fullcalendar/dist/fullcalendar");
+window.moment = require("moment/moment");
+
+window.Noty = require("noty");
+window.Dropzone = require("dropzone");
+
+require("card/dist/card");
