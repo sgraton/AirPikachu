@@ -12,6 +12,10 @@ class RoomsController < ApplicationController
   end
 
   def create
+    if !current_user.is_active_host
+      return redirect_to payout_method_path, alert: "Please connect to Stripe Express first."
+    end
+
     @room = current_user.rooms.build(room_params)
     if @room.save
       flash[:notice] = "Saved."

@@ -55,3 +55,4 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'twilio-ruby', '~> 5.25.3'
 
 gem 'stripe'
+gem 'omniauth-stripe-connect'

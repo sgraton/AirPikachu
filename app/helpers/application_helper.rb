@@ -7,4 +7,8 @@ module ApplicationHelper
             "https://www.gravatar.com/avatar/#{gravatar_id}.jpg?d=identicon&s=150"
         end
     end
+
+    def stripe_express_path
+        "https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_BDVAwZH0eAZ1nCoUvSvDYnVXSsmz9IdN&scope=read_write"
+    end
 end

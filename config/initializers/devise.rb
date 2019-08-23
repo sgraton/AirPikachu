@@ -301,4 +301,9 @@ Devise.setup do |config|
                   Rails.application.credentials[:development][:facebook][:access_key_id], 
                   Rails.application.credentials[:development][:facebook][:secret_access_key], 
                   scope: 'email', info_fields: 'email,name', image_size: 'large'
+  
+  config.omniauth :stripe_connect, 
+                  Rails.application.credentials[:development][:stripe][:access_key_id], 
+                  Rails.application.credentials[:development][:stripe][:secret_access_key], 
+                  scope: 'read_write', stripe_landing: 'login'
 end

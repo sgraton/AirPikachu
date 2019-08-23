@@ -68,7 +68,11 @@ class ReservationsController < ApplicationController
                     :customer => customer.id,
                     :amount => reservation.total * 100,
                     :description => room.listing_name,
-                    :currency => "eur"
+                    :currency => "eur",
+                    :destination => {
+                        :amount => reservation.total * 80,
+                        :account => room.user.merchant_id
+                    }
                 )
 
                 if charge
