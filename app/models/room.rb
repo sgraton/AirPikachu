@@ -4,6 +4,7 @@ class Room < ApplicationRecord
   belongs_to :user
   has_many :reservations
   has_many :guest_reviews
+  has_many :calendars
 
   validates :home_type, presence: true
   validates :room_type, presence: true

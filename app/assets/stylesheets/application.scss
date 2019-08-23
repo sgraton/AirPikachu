@@ -171,6 +171,15 @@ a {
     border: 1px solid #00A699;
 }
 
+.form-group input[type="radio"] {
+    height: 15px;
+    margin-right: 10px;
+}
+
+.btn-group label {
+    margin-right: 15px;
+}
+
 .form-group select {
     width: 100%;
     color: #565A5C;
@@ -382,4 +391,11 @@ a {
     position: relative;
     top: 7px;
     left: 20px;
+}
+
+.day-price {
+    position: absolute;
+    color: #EAA90B;
+    bottom: 2px;
+    right: 2px;
 }
