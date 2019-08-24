@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_194141) do
+ActiveRecord::Schema.define(version: 2019_08_24_195953) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -99,6 +99,15 @@ ActiveRecord::Schema.define(version: 2019_08_23_194141) do
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
+  create_table "settings", force: :cascade do |t|
+    t.boolean "enable_sms", default: true
+    t.boolean "enable_email", default: true
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_settings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -134,4 +143,5 @@ ActiveRecord::Schema.define(version: 2019_08_23_194141) do
   add_foreign_key "reviews", "users", column: "guest_id"
   add_foreign_key "reviews", "users", column: "host_id"
   add_foreign_key "rooms", "users"
+  add_foreign_key "settings", "users"
 end
