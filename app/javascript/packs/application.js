@@ -32,3 +32,6 @@ window.Noty = require("noty");
 window.Dropzone = require("dropzone");
 
 require("card/dist/card");
+
+require("chartkick")
+require("chart.js")

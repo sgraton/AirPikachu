@@ -9,6 +9,8 @@
     "bootstrap-sass": "^3.4.1",
     "bootstrap3": "^3.3.5",
     "card": "^2.4.0",
+    "chart.js": "^2.8.0",
+    "chartkick": "^3.1.1",
     "dropzone": "^5.5.1",
     "fullcalendar": "^3.10.1",
     "jquery": "^3.4.1",
