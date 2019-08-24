@@ -53,6 +53,21 @@ class ReservationsController < ApplicationController
     end
 
     private
+        def send_sms(room, reservation)
+            require 'twilio-ruby'
+        
+            # put your own credentials here
+            account_sid = Rails.application.credentials[:twilio][:access_account_sid]
+            auth_token = Rails.application.credentials[:twilio][:access_auth_token]
+            
+            @client = Twilio::REST::Client.new account_sid, auth_token
+            @client.api.account.messages.create(
+              from: '+33755537138',
+              to: room.user.phone_number,
+              body: "#{reservation.user.fullname} booked your '#{room.listing_name}'"
+            )
+        end
+
         def reservations_params
             params.require(:reservation).permit(:start_date, :end_date)
         end
@@ -77,6 +92,8 @@ class ReservationsController < ApplicationController
 
                 if charge
                     reservation.Approved!
+                    ReservationMailer.send_email_to_guest(reservation.user, room).deliver_later
+                    send_sms(room, reservation)
                     flash[:notice] = "Reservation created successfully !"
                 else
                     reservation.Declined!
