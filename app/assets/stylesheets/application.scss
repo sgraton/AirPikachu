@@ -400,6 +400,13 @@ a {
     right: 2px;
 }
 
+.badge {
+    background-color: #ff5a5f;
+    position: relative;
+    top: -15px;
+    left: -5px;
+}
+
 // PAYMENT FORM
 .StripeElement {
     box-sizing: border-box;
