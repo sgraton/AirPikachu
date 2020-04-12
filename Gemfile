@@ -43,7 +43,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'sassc-rails', '>= 2.1.0'
-gem 'devise', '=4.6.1'
+gem 'devise', '4.7.1'
 gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'omniauth', '=1.9.0'
