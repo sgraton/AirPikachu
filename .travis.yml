@@ -9,6 +9,8 @@ cache:
 before_script:
 - bundle exec rails db:create --all
 - bundle exec rails db:migrate
+services:
+- postgresql
 deploy:
   provider: heroku
   api_key:
