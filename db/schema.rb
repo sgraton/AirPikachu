@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2019_08_25_094030) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_094030) do
     t.date "day"
     t.integer "price"
     t.integer "status"
-    t.integer "room_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_calendars_on_room_id"
@@ -52,8 +55,8 @@ ActiveRecord::Schema.define(version: 2019_08_25_094030) do
 
   create_table "messages", force: :cascade do |t|
     t.string "context"
-    t.integer "user_id", null: false
-    t.integer "conversation_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "conversation_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
@@ -62,15 +65,15 @@ ActiveRecord::Schema.define(version: 2019_08_25_094030) do
 
   create_table "notifications", force: :cascade do |t|
     t.string "content"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "price"
@@ -85,10 +88,10 @@ ActiveRecord::Schema.define(version: 2019_08_25_094030) do
   create_table "reviews", force: :cascade do |t|
     t.text "comment"
     t.integer "star", default: 1
-    t.integer "room_id", null: false
-    t.integer "reservation_id", null: false
-    t.integer "guest_id", null: false
-    t.integer "host_id", null: false
+    t.bigint "room_id", null: false
+    t.bigint "reservation_id", null: false
+    t.bigint "guest_id", null: false
+    t.bigint "host_id", null: false
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -108,14 +111,13 @@ ActiveRecord::Schema.define(version: 2019_08_25_094030) do
     t.text "summary"
     t.string "address"
     t.boolean "is_tv"
-    t.string "is_kitchen"
-    t.string "boolean"
+    t.boolean "is_kitchen"
     t.boolean "is_air"
     t.boolean "is_heating"
     t.boolean "is_internet"
     t.integer "price"
     t.boolean "active"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
@@ -127,7 +129,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_094030) do
   create_table "settings", force: :cascade do |t|
     t.boolean "enable_sms", default: true
     t.boolean "enable_email", default: true
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_settings_on_user_id"
