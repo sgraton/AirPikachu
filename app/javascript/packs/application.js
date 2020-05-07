@@ -22,7 +22,7 @@ global.$ = $
 global.jQuery = $
 
 require('jquery-ui');
-require("packs/jquery.raty.js");
+require("packs/jquery.raty.js.erb");
 require("packs/geocomplete.js");
 
 require("fullcalendar/dist/fullcalendar");
