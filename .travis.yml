@@ -10,6 +10,8 @@ before_script:
 - bundle exec rails db:create --all
 - bundle exec rails db:migrate
 - bundle exec rails assets:precompile
+after_script:
+  - bundle exec rake assets:precompile
 services:
 - postgresql
 deploy:
