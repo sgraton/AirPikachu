@@ -48,7 +48,7 @@ gem 'omniauth', '=1.9.0'
 gem 'omniauth-facebook', '=5.0.0'
 gem "omniauth-rails_csrf_protection"
 gem "aws-sdk-s3", require: false
-gem "geocoder", '=1.5.1'
+gem "geocoder", '1.6.1'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'twilio-ruby', '~> 5.25.3'
 
