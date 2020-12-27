@@ -109,4 +109,16 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  config.action_mailer.default_url_options = { host: 'https://limitless-harbor-80092.herokuapp.com', port: 80 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mailgun.org',
+    port: 587,
+    domain: 'sandboxec2198bdfd134ab9bed0b2e077b6b38b.mailgun.org',
+    authentication: 'plain',
+    user_name: Rails.application.credentials[:development][:mailgun][:mailgun_id],
+    password: Rails.application.credentials[:development][:mailgun][:mailgun_secret]
+  }
 end
