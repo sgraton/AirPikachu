@@ -16,7 +16,7 @@
     "jquery": "^3.5.1",
     "jquery-ui-dist": "^1.12.1",
     "jquery-ujs": "^1.2.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "noty": "^3.2.0-beta",
     "popper.js": "^1.15.0",
     "turbolinks": "^5.2.0"
