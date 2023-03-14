@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.2'
+ruby '3.2.1'
 
-gem 'rails', '~> 6.0.0.rc2'
-gem 'puma', '~> 3.12'
-gem 'sass-rails', '~> 5'
-gem 'webpacker', '~> 4.0'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.7'
+gem 'rails', '~> 7.0.4.2'
+gem 'puma'
+gem 'sass-rails'
+gem 'webpacker'
+gem 'turbolinks'
+gem 'jbuilder'
 gem 'pg'
 
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -20,38 +20,39 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console'
+  gem 'listen'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
 
-
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'sassc-rails', '>= 2.1.0'
-gem 'devise', '4.7.1'
-gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails'
+gem 'devise'
+gem 'bootstrap-sass'
 
-gem 'omniauth', '=1.9.0'
-gem 'omniauth-facebook', '=5.0.0'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection"
 gem "aws-sdk-s3", require: false
-gem "geocoder", '1.6.1'
+gem "geocoder"
 gem 'ransack', github: 'activerecord-hackery/ransack'
-gem 'twilio-ruby', '~> 5.25.3'
+gem 'twilio-ruby'
 
 gem 'stripe'
 gem 'omniauth-stripe-connect'
 gem "chartkick"
+gem "dockerfile-rails", ">= 1.2", :group => :development
+
+gem "redis", "~> 5.0"

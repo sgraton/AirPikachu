@@ -16,6 +16,11 @@ class Room < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["accommodate", "active", "address", "bath_room", "bed_room", "created_at", "home_type", "id", "instant", "is_air", "is_heating", "is_internet", "is_kitchen", "is_tv", "latitude", "listing_name", "longitude", "price", "room_type", "summary", "updated_at", "user_id"]
+  end
+
   def cover_photo
     if self.images.length > 0
       self.images[0]

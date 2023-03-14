@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
 
     def update_phone_number
-        current_user.update_attributes(user_params)
+        current_user.update(user_params)
         current_user.generate_pin
         current_user.send_pin
 

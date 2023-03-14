@@ -12,6 +12,11 @@ class Reservation < ApplicationRecord
     .order(updated_at: :asc)
   }
 
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "end_date", "id", "price", "room_id", "start_date", "status", "total", "updated_at", "user_id"]
+  end
+
   private 
     def create_notification
       type = self.room.Instant? ? "New Booking" : "New Request"

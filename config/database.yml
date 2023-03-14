@@ -14,4 +14,4 @@ test:
 production:
   database: airpikachu_production
   username: airpikachu
-  password: <%= ENV['AIRPIKACHU_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_URL'] %>

@@ -43,7 +43,7 @@ class ReservationsController < ApplicationController
     end
 
     def your_trips
-        @trips = current_user.reservations.order(:start_date, :asc)
+        @trips = current_user.reservations.order(:start_date)
     end
 
     def your_reservations
