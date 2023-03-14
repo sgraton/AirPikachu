@@ -12,6 +12,6 @@ test:
   database: airpikachu_test
 
 production:
+  <<: *default
   database: airpikachu_production
-  username: airpikachu
-  password: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>

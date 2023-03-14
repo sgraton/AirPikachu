@@ -113,12 +113,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'https://limitless-harbor-80092.herokuapp.com', port: 80 }
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.mailgun.org',
-    port: 587,
-    domain: 'sandboxec2198bdfd134ab9bed0b2e077b6b38b.mailgun.org',
-    authentication: 'plain',
-    user_name: Rails.application.credentials[:development][:mailgun][:mailgun_id],
-    password: Rails.application.credentials[:development][:mailgun][:mailgun_secret]
-  }
+
+  if ENV['ASSET_COMPILE'].blank?
+    config.action_mailer.smtp_settings = {
+      address: 'smtp.mailgun.org',
+      port: 587,
+      domain: 'sandboxec2198bdfd134ab9bed0b2e077b6b38b.mailgun.org',
+      authentication: 'plain',
+      user_name: Rails.application.credentials[:development][:mailgun][:mailgun_id],
+      password: Rails.application.credentials[:development][:mailgun][:mailgun_secret]
+    }
+  end
 end
